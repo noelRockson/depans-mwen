@@ -77,5 +77,11 @@ macos/Runner/GoogleService-Info.plist
 service-account*.json
 *-firebase-adminsdk*.json
 
+# Project governance / local AI context (private)
+.cursorrules
+firestore.rules
+workflow.json
+worflow.json
+
 # Node dependencies
 node_modules/
