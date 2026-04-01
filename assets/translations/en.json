@@ -1,0 +1,300 @@
+{
+  "app_name": "Depans Mw",
+
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "loading": "Loading…",
+    "error": "Error",
+    "success": "Success",
+    "unknown": "Unknown",
+    "user": "User",
+    "currency_htg": "HTG",
+    "currency_usd": "USD",
+    "all": "All",
+    "today": "Today",
+    "week": "Week",
+    "month": "Month",
+    "quarter": "Quarter",
+    "year": "Year",
+    "custom": "Custom",
+    "not_implemented": "Feature coming soon.",
+    "search": "Search…",
+    "refresh": "Refresh",
+    "no_data": "No data"
+  },
+
+  "greeting": {
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening"
+  },
+
+  "auth": {
+    "sign_in_google": "Sign in with Google",
+    "sign_in_apple": "Sign in with Apple",
+    "sign_out": "Sign out",
+    "sign_out_confirm_title": "Sign out?",
+    "sign_out_confirm_body": "You will be redirected to the login screen.",
+    "delete_account": "Delete account",
+    "delete_account_confirm_title": "Delete account?",
+    "delete_account_confirm_body": "This action is irreversible. All your data will be deleted.",
+    "biometric_reason": "Unlock Depans Mw"
+  },
+
+  "nav": {
+    "dashboard": "Home",
+    "transactions": "Transactions",
+    "budgets": "Budgets",
+    "profile": "Profile"
+  },
+
+  "dashboard": {
+    "total_balance": "Total Balance",
+    "income": "Income",
+    "expense": "Expenses",
+    "income_htg": "Income HTG",
+    "income_usd": "Income USD",
+    "expense_htg": "Expenses HTG",
+    "expense_usd": "Expenses USD",
+    "balance_htg": "Balance HTG",
+    "balance_usd": "Balance USD",
+    "show_amounts": "Show amounts",
+    "hide_amounts": "Hide amounts",
+    "quick_actions": "Quick actions",
+    "add_expense": "Expense",
+    "add_income": "Income",
+    "recent_transactions": "Recent transactions",
+    "see_all": "See all",
+    "no_recent_transactions": "No recent transactions",
+    "active_budgets": "Active budgets",
+    "no_active_budgets": "No active budgets",
+    "exchange_rate_impact": "Exchange rate impact",
+    "exchange_rate_label": "1 USD = {rate} HTG",
+    "exchange_rate_source": "Source: BRH",
+    "exchange_rate_variation": "Variation",
+    "exchange_rate_impact_balance": "Impact on your balance"
+  },
+
+  "transactions": {
+    "title": "Transactions",
+    "filter_all": "All",
+    "filter_expenses": "Expenses",
+    "filter_incomes": "Income",
+    "filter_period": "Period",
+    "filter_currency": "Currency",
+    "filter_category": "Category",
+    "search_hint": "Search a transaction…",
+    "empty": "No transactions for this period.",
+    "date_today": "Today",
+    "date_yesterday": "Yesterday",
+    "sync_pending": "Local",
+    "type_expense": "Expense",
+    "type_income": "Income"
+  },
+
+  "add_expense": {
+    "title": "New expense",
+    "label_amount": "Amount",
+    "label_category": "Category",
+    "label_description": "Description (optional)",
+    "label_date": "Date",
+    "label_currency": "Currency",
+    "hint_amount": "0.00",
+    "hint_description": "E.g.: groceries, rent…",
+    "btn_save": "Save expense",
+    "error_amount": "Invalid amount.",
+    "error_category": "Please choose a category.",
+    "success": "Expense added!",
+    "delete_confirm_title": "Delete this expense?",
+    "delete_confirm_body": "This action is irreversible.",
+    "deleted": "Expense deleted.",
+    "updated": "Expense updated."
+  },
+
+  "add_income": {
+    "title": "New income",
+    "label_amount": "Amount",
+    "label_source": "Source",
+    "label_description": "Description (optional)",
+    "label_date": "Date",
+    "label_currency": "Currency",
+    "label_frequency": "Frequency",
+    "hint_amount": "0.00",
+    "hint_description": "E.g.: salary, freelance…",
+    "btn_save": "Save income",
+    "error_amount": "Invalid amount.",
+    "error_source": "Please choose a source.",
+    "success": "Income added!",
+    "deleted": "Income deleted.",
+    "updated": "Income updated."
+  },
+
+  "income_management": {
+    "title": "My income",
+    "no_incomes": "No income recorded.",
+    "add_income": "Add income",
+    "total_htg": "Total HTG",
+    "total_usd": "Total USD",
+    "frequency_monthly": "Monthly",
+    "frequency_weekly": "Weekly",
+    "frequency_biweekly": "Bi-weekly",
+    "frequency_yearly": "Yearly",
+    "frequency_once": "One-time"
+  },
+
+  "budgets": {
+    "title": "Budgets",
+    "create": "Create a budget",
+    "no_budgets": "No budgets. Create one!",
+    "active": "Active",
+    "completed": "Completed",
+    "over_budget": "Over budget",
+    "remaining": "Remaining",
+    "spent": "Spent",
+    "period": "Period",
+    "refresh": "Refresh",
+    "delete_confirm_title": "Delete this budget?",
+    "delete_confirm_body": "All related data will be deleted.",
+    "deleted": "Budget deleted.",
+    "sync_error": "Sync error."
+  },
+
+  "budget_detail": {
+    "title": "Budget detail",
+    "allocated": "Allocated",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "progress": "Progress",
+    "expenses_linked": "Linked expenses",
+    "no_expenses": "No linked expenses.",
+    "add_expense": "Add an expense"
+  },
+
+  "create_budget": {
+    "title": "New budget",
+    "label_name": "Budget name",
+    "label_amount": "Allocated amount",
+    "label_category": "Category",
+    "label_currency": "Currency",
+    "label_period": "Period",
+    "label_start": "Start",
+    "label_end": "End",
+    "hint_name": "E.g.: Groceries, Rent…",
+    "hint_amount": "0.00",
+    "btn_save": "Create budget",
+    "error_name": "Name required.",
+    "error_amount": "Invalid amount.",
+    "success": "Budget created!"
+  },
+
+  "profile": {
+    "title": "Profile",
+    "plan_free": "Free",
+    "plan_upgrade": "Upgrade to Premium",
+    "plan_premium_coming": "Premium coming soon.",
+
+    "section_financial": "Financial settings",
+    "my_incomes": "My income",
+    "preferred_currency": "Preferred currency",
+    "exchange_rate": "Exchange rate",
+    "savings_goal": "Savings goal",
+    "savings_goal_coming": "Savings goal coming soon.",
+    "categories": "Categories",
+    "categories_coming": "Category management coming soon.",
+
+    "section_settings": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "notifications_coming": "Notification settings coming soon.",
+    "biometric_security": "Biometric security",
+    "session_expiry": "Session expiry",
+
+    "section_data": "Data",
+    "sync": "Synchronization",
+    "sync_success": "Synchronization complete.",
+    "sync_error": "Sync error.",
+    "export": "Export",
+    "export_coming": "Export coming soon.",
+
+    "section_help": "Help",
+    "guide": "Guide",
+    "faq": "FAQ",
+    "support": "Support",
+    "rate_app": "Rate the app",
+
+    "section_legal": "Legal",
+    "terms": "Terms of use",
+    "privacy": "Privacy",
+    "version": "Version",
+
+    "logout": "Sign out",
+    "delete_account": "Delete account"
+  },
+
+  "language": {
+    "title": "App language",
+    "french": "Français",
+    "creole": "Kreyòl Ayisyen",
+    "english": "English",
+    "changed": "Language updated."
+  },
+
+  "biometric": {
+    "title": "Biometric security",
+    "enable": "Enable biometric unlock",
+    "delay_label": "Delay before lock",
+    "delay_1min": "1 minute",
+    "delay_5min": "5 minutes",
+    "delay_15min": "15 minutes",
+    "delay_30min": "30 minutes",
+    "delay_60min": "1 hour"
+  },
+
+  "session": {
+    "title": "Session expiry",
+    "never": "Never",
+    "7days": "7 days",
+    "30days": "30 days",
+    "90days": "90 days"
+  },
+
+  "exchange_rate": {
+    "title": "Exchange rate",
+    "current_rate": "Current rate",
+    "source_brh": "Source: BRH (Banque de la République d'Haïti)",
+    "last_updated": "Last updated",
+    "loading": "Loading rate…",
+    "error": "Unable to load rate.",
+    "close": "Close"
+  },
+
+  "currency_selector": {
+    "title": "Preferred currency",
+    "htg_label": "Haitian Gourde (HTG)",
+    "usd_label": "US Dollar (USD)"
+  },
+
+  "categories": {
+    "food": "Food",
+    "transport": "Transport",
+    "housing": "Housing",
+    "health": "Health",
+    "education": "Education",
+    "entertainment": "Entertainment",
+    "shopping": "Shopping",
+    "utilities": "Utilities",
+    "salary": "Salary",
+    "freelance": "Freelance",
+    "investment": "Investment",
+    "gift": "Gift",
+    "other": "Other"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "app_name": "Depans Mw",
+
+  "common": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "loading": "Chargement…",
+    "error": "Erreur",
+    "success": "Succès",
+    "unknown": "Inconnu",
+    "user": "Utilisateur",
+    "currency_htg": "HTG",
+    "currency_usd": "USD",
+    "all": "Tout",
+    "today": "Aujourd'hui",
+    "week": "Semaine",
+    "month": "Mois",
+    "quarter": "Trimestre",
+    "year": "Année",
+    "custom": "Personnalisé",
+    "not_implemented": "Fonctionnalité à implémenter.",
+    "search": "Rechercher…",
+    "refresh": "Actualiser",
+    "no_data": "Aucune donnée"
+  },
+
+  "greeting": {
+    "morning": "Bonjour",
+    "afternoon": "Bon après-midi",
+    "evening": "Bonsoir"
+  },
+
+  "auth": {
+    "sign_in_google": "Connexion avec Google",
+    "sign_in_apple": "Connexion avec Apple",
+    "sign_out": "Se déconnecter",
+    "sign_out_confirm_title": "Se déconnecter ?",
+    "sign_out_confirm_body": "Vous serez redirigé vers l'écran de connexion.",
+    "delete_account": "Supprimer le compte",
+    "delete_account_confirm_title": "Supprimer le compte ?",
+    "delete_account_confirm_body": "Cette action est irréversible. Toutes vos données seront supprimées.",
+    "biometric_reason": "Déverrouillez Depans Mw"
+  },
+
+  "nav": {
+    "dashboard": "Accueil",
+    "transactions": "Transactions",
+    "budgets": "Budgets",
+    "profile": "Profil"
+  },
+
+  "dashboard": {
+    "total_balance": "Solde Total",
+    "income": "Revenus",
+    "expense": "Dépenses",
+    "income_htg": "Revenus HTG",
+    "income_usd": "Revenus USD",
+    "expense_htg": "Dépenses HTG",
+    "expense_usd": "Dépenses USD",
+    "balance_htg": "Solde HTG",
+    "balance_usd": "Solde USD",
+    "show_amounts": "Afficher les montants",
+    "hide_amounts": "Masquer les montants",
+    "quick_actions": "Actions rapides",
+    "add_expense": "Dépense",
+    "add_income": "Revenu",
+    "recent_transactions": "Transactions récentes",
+    "see_all": "Voir tout",
+    "no_recent_transactions": "Aucune transaction récente",
+    "active_budgets": "Budgets actifs",
+    "no_active_budgets": "Aucun budget actif",
+    "exchange_rate_impact": "Impact du taux de change",
+    "exchange_rate_label": "1 USD = {rate} HTG",
+    "exchange_rate_source": "Source : BRH",
+    "exchange_rate_variation": "Variation",
+    "exchange_rate_impact_balance": "Impact sur votre solde"
+  },
+
+  "transactions": {
+    "title": "Transactions",
+    "filter_all": "Tout",
+    "filter_expenses": "Dépenses",
+    "filter_incomes": "Revenus",
+    "filter_period": "Période",
+    "filter_currency": "Devise",
+    "filter_category": "Catégorie",
+    "search_hint": "Rechercher une transaction…",
+    "empty": "Aucune transaction pour cette période.",
+    "date_today": "Aujourd'hui",
+    "date_yesterday": "Hier",
+    "sync_pending": "Local",
+    "type_expense": "Dépense",
+    "type_income": "Revenu"
+  },
+
+  "add_expense": {
+    "title": "Nouvelle dépense",
+    "label_amount": "Montant",
+    "label_category": "Catégorie",
+    "label_description": "Description (optionnelle)",
+    "label_date": "Date",
+    "label_currency": "Devise",
+    "hint_amount": "0.00",
+    "hint_description": "Ex : courses, loyer…",
+    "btn_save": "Enregistrer la dépense",
+    "error_amount": "Montant invalide.",
+    "error_category": "Veuillez choisir une catégorie.",
+    "success": "Dépense ajoutée !",
+    "delete_confirm_title": "Supprimer cette dépense ?",
+    "delete_confirm_body": "Cette action est irréversible.",
+    "deleted": "Dépense supprimée.",
+    "updated": "Dépense mise à jour."
+  },
+
+  "add_income": {
+    "title": "Nouveau revenu",
+    "label_amount": "Montant",
+    "label_source": "Source",
+    "label_description": "Description (optionnelle)",
+    "label_date": "Date",
+    "label_currency": "Devise",
+    "label_frequency": "Fréquence",
+    "hint_amount": "0.00",
+    "hint_description": "Ex : salaire, freelance…",
+    "btn_save": "Enregistrer le revenu",
+    "error_amount": "Montant invalide.",
+    "error_source": "Veuillez choisir une source.",
+    "success": "Revenu ajouté !",
+    "deleted": "Revenu supprimé.",
+    "updated": "Revenu mis à jour."
+  },
+
+  "income_management": {
+    "title": "Mes revenus",
+    "no_incomes": "Aucun revenu enregistré.",
+    "add_income": "Ajouter un revenu",
+    "total_htg": "Total HTG",
+    "total_usd": "Total USD",
+    "frequency_monthly": "Mensuel",
+    "frequency_weekly": "Hebdomadaire",
+    "frequency_biweekly": "Bimensuel",
+    "frequency_yearly": "Annuel",
+    "frequency_once": "Unique"
+  },
+
+  "budgets": {
+    "title": "Budgets",
+    "create": "Créer un budget",
+    "no_budgets": "Aucun budget. Créez-en un !",
+    "active": "Actif",
+    "completed": "Complété",
+    "over_budget": "Dépassé",
+    "remaining": "Restant",
+    "spent": "Dépensé",
+    "period": "Période",
+    "refresh": "Actualiser",
+    "delete_confirm_title": "Supprimer ce budget ?",
+    "delete_confirm_body": "Toutes les données liées seront supprimées.",
+    "deleted": "Budget supprimé.",
+    "sync_error": "Erreur de synchronisation."
+  },
+
+  "budget_detail": {
+    "title": "Détail du budget",
+    "allocated": "Alloué",
+    "spent": "Dépensé",
+    "remaining": "Restant",
+    "progress": "Progression",
+    "expenses_linked": "Dépenses liées",
+    "no_expenses": "Aucune dépense liée.",
+    "add_expense": "Ajouter une dépense"
+  },
+
+  "create_budget": {
+    "title": "Nouveau budget",
+    "label_name": "Nom du budget",
+    "label_amount": "Montant alloué",
+    "label_category": "Catégorie",
+    "label_currency": "Devise",
+    "label_period": "Période",
+    "label_start": "Début",
+    "label_end": "Fin",
+    "hint_name": "Ex : Courses, Loyer…",
+    "hint_amount": "0.00",
+    "btn_save": "Créer le budget",
+    "error_name": "Nom requis.",
+    "error_amount": "Montant invalide.",
+    "success": "Budget créé !"
+  },
+
+  "profile": {
+    "title": "Profil",
+    "plan_free": "Gratuit",
+    "plan_upgrade": "Passer à Premium",
+    "plan_premium_coming": "Premium à implémenter.",
+
+    "section_financial": "Paramètres financiers",
+    "my_incomes": "Mes revenus",
+    "preferred_currency": "Devise préférée",
+    "exchange_rate": "Taux de change",
+    "savings_goal": "Objectif d'épargne",
+    "savings_goal_coming": "Objectif d'épargne à implémenter.",
+    "categories": "Catégories",
+    "categories_coming": "Gestion des catégories à implémenter.",
+
+    "section_settings": "Paramètres",
+    "language": "Langue",
+    "notifications": "Notifications",
+    "notifications_coming": "Paramètres de notifications à implémenter.",
+    "biometric_security": "Sécurité biométrique",
+    "session_expiry": "Expiration de session",
+
+    "section_data": "Données",
+    "sync": "Synchronisation",
+    "sync_success": "Synchronisation terminée.",
+    "sync_error": "Erreur de synchronisation.",
+    "export": "Exporter",
+    "export_coming": "Export à implémenter.",
+
+    "section_help": "Aide",
+    "guide": "Guide",
+    "faq": "FAQ",
+    "support": "Support",
+    "rate_app": "Évaluer l'app",
+
+    "section_legal": "Légal",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Confidentialité",
+    "version": "Version",
+
+    "logout": "Se déconnecter",
+    "delete_account": "Supprimer le compte"
+  },
+
+  "language": {
+    "title": "Langue de l'application",
+    "french": "Français",
+    "creole": "Kreyòl Ayisyen",
+    "english": "English",
+    "changed": "Langue mise à jour."
+  },
+
+  "biometric": {
+    "title": "Sécurité biométrique",
+    "enable": "Activer le déverouillage biométrique",
+    "delay_label": "Délai avant verrouillage",
+    "delay_1min": "1 minute",
+    "delay_5min": "5 minutes",
+    "delay_15min": "15 minutes",
+    "delay_30min": "30 minutes",
+    "delay_60min": "1 heure"
+  },
+
+  "session": {
+    "title": "Expiration de session",
+    "never": "Jamais",
+    "7days": "7 jours",
+    "30days": "30 jours",
+    "90days": "90 jours"
+  },
+
+  "exchange_rate": {
+    "title": "Taux de change",
+    "current_rate": "Taux actuel",
+    "source_brh": "Source : BRH (Banque de la République d'Haïti)",
+    "last_updated": "Mis à jour le",
+    "loading": "Chargement du taux…",
+    "error": "Impossible de charger le taux.",
+    "close": "Fermer"
+  },
+
+  "currency_selector": {
+    "title": "Devise préférée",
+    "htg_label": "Gourde haïtienne (HTG)",
+    "usd_label": "Dollar américain (USD)"
+  },
+
+  "categories": {
+    "food": "Alimentation",
+    "transport": "Transport",
+    "housing": "Logement",
+    "health": "Santé",
+    "education": "Éducation",
+    "entertainment": "Loisirs",
+    "shopping": "Shopping",
+    "utilities": "Services publics",
+    "salary": "Salaire",
+    "freelance": "Freelance",
+    "investment": "Investissement",
+    "gift": "Cadeau",
+    "other": "Autre"
+  }
+}

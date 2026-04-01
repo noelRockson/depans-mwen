@@ -13,6 +13,6 @@ Tu agis en tant qu'Expert Développeur Flutter Senior. Ton objectif est de déve
    - Devises : Gestion obligatoire du HTG et USD avec sélection manuelle par l'utilisateur pour chaque entrée.
 
 ### TÂCHE IMMÉDIATE :
-Analyse le fichier `worflow.json` et génère les modèles de données (Data Models) Dart pour les collections 'incomes' et 'expenses' en respectant les types de données et la gestion des devises. Crée ensuite un service simple pour la récupération du taux BRH (mock ou API).
+Analyse le fichier `workflow.json` et génère les modèles de données (Data Models) Dart pour les collections 'incomes' et 'expenses' en respectant les types de données et la gestion des devises. Crée ensuite un service simple pour la récupération du taux BRH (mock ou API).
 
 Attends mes instructions pour chaque écran (View).

@@ -1,7 +1,7 @@
 {
   "app_metadata": {
     "name": "Depans Mw",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "developer": "Rockson Noel",
     "tagline": "Jere lajan'w fasil",
     "default_locale": "fr_HT",
@@ -53,7 +53,8 @@
         "App_Launch",
         "Background_Periodic (every 15 minutes)",
         "After_User_Action (delayed by 2 seconds)",
-        "On_Network_Available"
+        "On_Network_Available",
+        "Realtime_Firestore_Snapshot_Listeners (expenses, incomes, budgets)"
       ],
       "retry_policy": {
         "max_retries": 3,
@@ -1045,6 +1046,11 @@
       "name": "Tableau de Bord Principal",
       "screen": "DashboardScreen",
       "description": "Vue d'ensemble multi-devises avec toggle Combined/Split",
+      "implementation_notes": {
+        "data_source": "Local offline cache first (Hive), then background sync",
+        "refresh_mode": "Stale-while-refresh (keep previous values visible during recalculation)",
+        "realtime_updates": "Firestore snapshot listeners trigger silent refresh without full screen spinner"
+      },
       
       "header": {
         "greeting": {
@@ -1082,6 +1088,18 @@
             "offline": "cloud_off (gray)"
           },
           "tap_action": "Show sync details dialog"
+        },
+        "amount_visibility": {
+          "enabled": true,
+          "default_state": "hidden",
+          "toggle_icon": "visibility / visibility_off",
+          "applies_to": [
+            "Solde Total",
+            "Revenus",
+            "Dépenses",
+            "Solde HTG",
+            "Solde USD"
+          ]
         }
       },
 
@@ -1121,7 +1139,8 @@
                 "currency": "{preferred_currency}",
                 "icon": "account_balance_wallet",
                 "color": "dynamic (green if positive, red if negative)",
-                "tap_action": "Show breakdown dialog"
+                "tap_action": "Show breakdown dialog",
+                "amount_masking": "Supported via visibility icon"
               }
             ]
           },
@@ -1149,7 +1168,8 @@
                   "value": "{balance_htg}",
                   "currency": "HTG",
                   "icon": "account_balance_wallet",
-                  "color": "dynamic"
+                  "color": "dynamic",
+                  "tap_action": "Navigate to IncomeManagementScreen"
                 }
               ]
             },
@@ -1174,7 +1194,8 @@
                   "value": "{balance_usd}",
                   "currency": "USD",
                   "icon": "account_balance_wallet",
-                  "color": "dynamic"
+                  "color": "dynamic",
+                  "tap_action": "Navigate to IncomeManagementScreen"
                 }
               ]
             },
@@ -1235,6 +1256,7 @@
           "title_fr": "Transactions récentes",
           "title_ht": "Dènye tranzaksyon",
           "show_count": 5,
+          "ui_refresh_strategy": "stale-while-refresh (keep list visible + small corner spinner)",
           
           "list_item_template": {
             "left": {
@@ -1275,6 +1297,7 @@
           "title_fr": "Budgets actifs",
           "title_ht": "Bidjè aktif",
           "max_display": 3,
+          "ui_refresh_strategy": "stale-while-refresh (keep cards visible + small corner spinner)",
           
           "budget_card_template": {
             "title": "{budget.name}",
@@ -1385,14 +1408,8 @@
       ],
 
       "floating_action_button": {
-        "icon": "add",
-        "label_fr": "Dépense",
-        "label_ht": "Depans",
-        "position": "bottom_center_above_nav",
-        "size": "large",
-        "color": "primary",
-        "action": "Show AddExpenseBottomSheet",
-        "long_press_action": "Show quick action menu (Add Expense, Scan Receipt, Add Income)"
+        "enabled": false,
+        "note": "Not active in current implementation. Expense entry is available through Quick Actions."
       },
 
       "bottom_navigation": {
@@ -1411,9 +1428,9 @@
           },
           {
             "icon": "bar_chart",
-            "label_fr": "Stats",
-            "label_ht": "Estatistik",
-            "screen": "StatisticsScreen"
+            "label_fr": "Budgets",
+            "label_ht": "Bidjè",
+            "screen": "BudgetsScreen"
           },
           {
             "icon": "person",
@@ -1422,6 +1439,21 @@
             "screen": "ProfileScreen"
           }
         ]
+      }
+    },
+
+    "phase_3b_income_management": {
+      "name": "Gestion des revenus",
+      "screen": "IncomeManagementScreen",
+      "description": "Lister/ajouter/modifier/supprimer les sources de revenus (offline-first + sync).",
+      "entry_points": [
+        "Dashboard balance_overview (tap Revenus)",
+        "Profile > Paramètres financiers > Mes revenus"
+      ],
+      "actions": {
+        "add": "Open AddIncomeBottomSheet",
+        "edit": "Open AddIncomeBottomSheet with initialIncome",
+        "delete": "Offline-first: local delete + enqueue DELETE + sync"
       }
     },
 
@@ -2514,6 +2546,13 @@
 
   "offline_strategy": {
     "core_principle": "App fully functional offline, sync when online",
+    "dashboard_live_refresh": {
+      "enabled": true,
+      "source": "Firestore snapshots + local cache recalculation",
+      "collections_observed": ["expenses", "incomes", "budgets"],
+      "debounce_ms": 450,
+      "ui_policy": "Never replace loaded cards with full spinner during refresh"
+    },
     
     "offline_capabilities": [
       "Add/edit/delete expenses",
@@ -2533,6 +2572,118 @@
       "queue_storage": "Local database with operation log",
       "sync_on_reconnect": true,
       "conflict_resolution": "Last write wins (use timestamps)"
+    },
+    "expenses_offline_local_cache": {
+      "local_storage": "Hive boxes per user: expenses_{user_id} + expense_queue_{user_id}",
+      "synced_flag": {
+        "field_name": "synced",
+        "local_only": true,
+        "purpose": "Indiquer si la transaction est déjà persistée sur Firestore"
+      },
+      "conflict_resolution": {
+        "basis": "updated_at_ms (numeric millis)",
+        "rule": "Appliquer une op uniquement si updated_at_ms local >= updated_at_ms distant"
+      },
+      "queue_operations": {
+        "supported": ["create", "update", "delete"],
+        "delete_payload": "payload vide (pas de parsing requis)",
+        "local_delete_behavior": "suppression de la transaction de Hive + synchronisation via opération DELETE"
+      },
+      "firestore_fields": {
+        "must_store": [
+          "expense_id",
+          "user_id",
+          "amount",
+          "currency_at_entry",
+          "exchange_rate_at_entry",
+          "category_id",
+          "description",
+          "is_fixed",
+          "recurrence_frequency",
+          "recurrence_day",
+          "auto_add_next_occurrence",
+          "date",
+          "payment_method",
+          "receipt_urls",
+          "ai_categorized",
+          "ai_confidence",
+          "created_at",
+          "updated_at",
+          "updated_at_ms"
+        ],
+        "must_not_store": ["synced (local-only)"]
+      }
+    },
+    "incomes_offline_local_cache": {
+      "local_storage": "Hive boxes per user: incomes_{user_id} + income_queue_{user_id}",
+      "synced_flag": {
+        "field_name": "synced",
+        "local_only": true,
+        "purpose": "Indiquer si le revenu est déjà persisté sur Firestore"
+      },
+      "conflict_resolution": {
+        "basis": "last_updated_ms (numeric millis)",
+        "rule": "Appliquer une op uniquement si last_updated_ms local >= last_updated_ms distant"
+      },
+      "queue_operations": {
+        "supported": ["create", "update", "delete"],
+        "delete_payload": "payload vide (pas de parsing requis)",
+        "local_delete_behavior": "suppression du revenu dans Hive + synchronisation via opération DELETE"
+      },
+      "firestore_fields": {
+        "must_store": [
+          "income_id",
+          "user_id",
+          "source_label",
+          "amount",
+          "currency",
+          "frequency",
+          "next_payment_date",
+          "is_active",
+          "created_at",
+          "last_updated",
+          "last_updated_ms"
+        ],
+        "must_not_store": ["synced (local-only)"]
+      }
+    },
+
+    "budgets_offline_local_cache": {
+      "local_storage": "Hive boxes per user: budgets_{user_id} + budget_queue_{user_id}",
+      "synced_flag": {
+        "field_name": "synced",
+        "local_only": true,
+        "purpose": "Indiquer si le budget est déjà persisté sur Firestore"
+      },
+      "conflict_resolution": {
+        "basis": "created_at_ms (numeric millis)",
+        "rule": "Appliquer une op uniquement si created_at_ms local >= created_at_ms distant"
+      },
+      "queue_operations": {
+        "supported": ["create", "update", "delete"],
+        "delete_payload": "payload vide",
+        "local_delete_behavior": "suppression du budget dans Hive + synchronisation via opération DELETE"
+      },
+      "firestore_fields": {
+        "must_store": [
+          "budget_id",
+          "user_id",
+          "name",
+          "description",
+          "amount",
+          "currency",
+          "period_type",
+          "start_date",
+          "end_date",
+          "category_ids",
+          "alert_threshold_percentage",
+          "rollover_unused",
+          "status",
+          "created_at",
+          "created_at_ms"
+        ],
+        "must_not_store": ["synced (local-only)"]
+      }
     },
 
     "data_freshness_indicators": {
@@ -2562,15 +2713,41 @@
     
     "authentication": {
       "session_management": "Firebase Auth tokens",
+      "session_persistence": {
+        "local_storage": "SharedPreferences",
+        "persist_connected_state": true,
+        "check_on_app_launch": true,
+        "offline_first": true,
+        "stored_fields": [
+          "onboarding_completed",
+          "last_activity_at",
+          "biometric_enabled",
+          "biometric_after_minutes",
+          "session_timeout_days"
+        ]
+      },
+      "session_timeout": {
+        "optional": true,
+        "default_timeout_days": 30,
+        "allowed_options_days": [7, 30, 90, -1],
+        "never_policy_value": -1,
+        "timeout_basis": "last_activity_at"
+      },
       "biometric": {
         "enabled": true,
         "optional": true,
-        "use_case": "App unlock after background > 5 minutes"
+        "use_case": "App unlock after background > 5 minutes",
+        "fallback_policy": "If biometric is enabled but unavailable on device (or auth API throws), allow access instead of forcing sign-out"
+      },
+      "oauth_first_login_behavior": {
+        "providers": ["google.com", "apple.com"],
+        "onboarding_local_default": true,
+        "reason": "Avoid blocking authenticated OAuth users on placeholder onboarding screen"
       }
     },
 
     "firebase_security_rules": {
-      "firestore": "match /users/{userId}/expenses/{document=**} { allow read, write: if request.auth.uid == userId; }",
+      "firestore": "match /users/{userId} { allow read, write: if request.auth != null && request.auth.uid == userId; match /expenses/{document=**} { allow read, write: if request.auth != null && request.auth.uid == userId; } match /incomes/{document=**} { allow read, write: if request.auth != null && request.auth.uid == userId; } match /budgets/{document=**} { allow read, write: if request.auth != null && request.auth.uid == userId; } } match /exchange_rates/{document=**} { allow read: if request.auth != null; allow write: if false; } match /categories/{document=**} { allow read: if request.auth != null; }",
       "storage": "User receipts in /users/{userId}/receipts/, only accessible by user"
     }
   },

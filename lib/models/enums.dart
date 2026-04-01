@@ -92,6 +92,90 @@ extension ExpenseRecurrenceFrequencyCode on ExpenseRecurrenceFrequency {
   }
 }
 
+enum BudgetPeriodType {
+  monthly,
+  quarterly,
+  custom,
+}
+
+extension BudgetPeriodTypeCode on BudgetPeriodType {
+  String get code {
+    switch (this) {
+      case BudgetPeriodType.monthly:
+        return 'Monthly';
+      case BudgetPeriodType.quarterly:
+        return 'Quarterly';
+      case BudgetPeriodType.custom:
+        return 'Custom';
+    }
+  }
+
+  String get label {
+    switch (this) {
+      case BudgetPeriodType.monthly:
+        return 'Mensuel';
+      case BudgetPeriodType.quarterly:
+        return 'Trimestriel';
+      case BudgetPeriodType.custom:
+        return 'Personnalisé';
+    }
+  }
+
+  static BudgetPeriodType fromCode(String code) {
+    switch (code) {
+      case 'Quarterly':
+        return BudgetPeriodType.quarterly;
+      case 'Custom':
+        return BudgetPeriodType.custom;
+      case 'Monthly':
+      default:
+        return BudgetPeriodType.monthly;
+    }
+  }
+}
+
+enum BudgetStatus {
+  active,
+  completed,
+  exceeded,
+}
+
+extension BudgetStatusCode on BudgetStatus {
+  String get code {
+    switch (this) {
+      case BudgetStatus.active:
+        return 'Active';
+      case BudgetStatus.completed:
+        return 'Completed';
+      case BudgetStatus.exceeded:
+        return 'Exceeded';
+    }
+  }
+
+  String get label {
+    switch (this) {
+      case BudgetStatus.active:
+        return 'Actif';
+      case BudgetStatus.completed:
+        return 'Terminé';
+      case BudgetStatus.exceeded:
+        return 'Dépassé';
+    }
+  }
+
+  static BudgetStatus fromCode(String code) {
+    switch (code) {
+      case 'Completed':
+        return BudgetStatus.completed;
+      case 'Exceeded':
+        return BudgetStatus.exceeded;
+      case 'Active':
+      default:
+        return BudgetStatus.active;
+    }
+  }
+}
+
 enum PaymentMethod {
   cash,
   card,

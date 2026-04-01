@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // User document: only the owner can read/write.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // Expenses subcollection
+      match /expenses/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Incomes subcollection
+      match /incomes/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Budgets subcollection
+      match /budgets/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Exchange rates: readable by any authenticated user
+    match /exchange_rates/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Default categories: readable by any authenticated user
+    match /categories/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+        && resource == null
+        && request.resource.data.user_id == request.auth.uid;
+    }
+  }
+}

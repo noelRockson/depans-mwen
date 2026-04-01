@@ -1,0 +1,300 @@
+{
+  "app_name": "Depans Mw",
+
+  "common": {
+    "cancel": "Anile",
+    "confirm": "Konfime",
+    "save": "Sovgade",
+    "delete": "Efase",
+    "edit": "Modifye",
+    "close": "Fèmen",
+    "yes": "Wi",
+    "no": "Non",
+    "ok": "OK",
+    "loading": "Chajman…",
+    "error": "Erè",
+    "success": "Siksè",
+    "unknown": "Enkoni",
+    "user": "Itilizatè",
+    "currency_htg": "HTG",
+    "currency_usd": "USD",
+    "all": "Tout",
+    "today": "Jodi a",
+    "week": "Semèn",
+    "month": "Mwa",
+    "quarter": "Trimès",
+    "year": "Ane",
+    "custom": "Pèsonalize",
+    "not_implemented": "Fonksyon pou vin.",
+    "search": "Rechèche…",
+    "refresh": "Aktyalize",
+    "no_data": "Pa gen done"
+  },
+
+  "greeting": {
+    "morning": "Bonjou",
+    "afternoon": "Bon aprèmidi",
+    "evening": "Bonswa"
+  },
+
+  "auth": {
+    "sign_in_google": "Konekte ak Google",
+    "sign_in_apple": "Konekte ak Apple",
+    "sign_out": "Dekonekte",
+    "sign_out_confirm_title": "Dekonekte ?",
+    "sign_out_confirm_body": "Ou pral retounen nan ekran koneksyon an.",
+    "delete_account": "Efase kont lan",
+    "delete_account_confirm_title": "Efase kont lan ?",
+    "delete_account_confirm_body": "Aksyon sa a pa ka defèt. Tout done ou yo pral efase.",
+    "biometric_reason": "Debloke Depans Mw"
+  },
+
+  "nav": {
+    "dashboard": "Akèy",
+    "transactions": "Tranzaksyon",
+    "budgets": "Bidjè",
+    "profile": "Pwofil"
+  },
+
+  "dashboard": {
+    "total_balance": "Balans Total",
+    "income": "Revni",
+    "expense": "Depans",
+    "income_htg": "Revni HTG",
+    "income_usd": "Revni USD",
+    "expense_htg": "Depans HTG",
+    "expense_usd": "Depans USD",
+    "balance_htg": "Balans HTG",
+    "balance_usd": "Balans USD",
+    "show_amounts": "Montre montan yo",
+    "hide_amounts": "Kache montan yo",
+    "quick_actions": "Aksyon rapid",
+    "add_expense": "Depans",
+    "add_income": "Revni",
+    "recent_transactions": "Tranzaksyon resan",
+    "see_all": "Wè tout",
+    "no_recent_transactions": "Pa gen tranzaksyon resan",
+    "active_budgets": "Bidjè aktif",
+    "no_active_budgets": "Pa gen bidjè aktif",
+    "exchange_rate_impact": "Enpak to echanj lan",
+    "exchange_rate_label": "1 USD = {rate} HTG",
+    "exchange_rate_source": "Sous : BRH",
+    "exchange_rate_variation": "Variyasyon",
+    "exchange_rate_impact_balance": "Enpak sou balans ou"
+  },
+
+  "transactions": {
+    "title": "Tranzaksyon",
+    "filter_all": "Tout",
+    "filter_expenses": "Depans",
+    "filter_incomes": "Revni",
+    "filter_period": "Peryòd",
+    "filter_currency": "Monè",
+    "filter_category": "Kategori",
+    "search_hint": "Rechèche yon tranzaksyon…",
+    "empty": "Pa gen tranzaksyon pou peryòd sa a.",
+    "date_today": "Jodi a",
+    "date_yesterday": "Yè",
+    "sync_pending": "Lokal",
+    "type_expense": "Depans",
+    "type_income": "Revni"
+  },
+
+  "add_expense": {
+    "title": "Nouvo depans",
+    "label_amount": "Montan",
+    "label_category": "Kategori",
+    "label_description": "Deskripsyon (opsyonèl)",
+    "label_date": "Dat",
+    "label_currency": "Monè",
+    "hint_amount": "0.00",
+    "hint_description": "Egzanp : manje, lojman…",
+    "btn_save": "Anrejistre depans lan",
+    "error_amount": "Montan envalid.",
+    "error_category": "Tanpri chwazi yon kategori.",
+    "success": "Depans ajoute !",
+    "delete_confirm_title": "Efase depans sa a ?",
+    "delete_confirm_body": "Aksyon sa a pa ka defèt.",
+    "deleted": "Depans efase.",
+    "updated": "Depans mete ajou."
+  },
+
+  "add_income": {
+    "title": "Nouvo revni",
+    "label_amount": "Montan",
+    "label_source": "Sous",
+    "label_description": "Deskripsyon (opsyonèl)",
+    "label_date": "Dat",
+    "label_currency": "Monè",
+    "label_frequency": "Frekans",
+    "hint_amount": "0.00",
+    "hint_description": "Egzanp : salè, frilans…",
+    "btn_save": "Anrejistre revni an",
+    "error_amount": "Montan envalid.",
+    "error_source": "Tanpri chwazi yon sous.",
+    "success": "Revni ajoute !",
+    "deleted": "Revni efase.",
+    "updated": "Revni mete ajou."
+  },
+
+  "income_management": {
+    "title": "Revni mwen yo",
+    "no_incomes": "Pa gen revni anrejistre.",
+    "add_income": "Ajoute yon revni",
+    "total_htg": "Total HTG",
+    "total_usd": "Total USD",
+    "frequency_monthly": "Chak mwa",
+    "frequency_weekly": "Chak semèn",
+    "frequency_biweekly": "De fwa pa mwa",
+    "frequency_yearly": "Chak ane",
+    "frequency_once": "Yon sèl fwa"
+  },
+
+  "budgets": {
+    "title": "Bidjè",
+    "create": "Kreye yon bidjè",
+    "no_budgets": "Pa gen bidjè. Kreye youn !",
+    "active": "Aktif",
+    "completed": "Fini",
+    "over_budget": "Depase",
+    "remaining": "Rès",
+    "spent": "Depanse",
+    "period": "Peryòd",
+    "refresh": "Aktyalize",
+    "delete_confirm_title": "Efase bidjè sa a ?",
+    "delete_confirm_body": "Tout done ki lye yo pral efase.",
+    "deleted": "Bidjè efase.",
+    "sync_error": "Erè senkronizasyon."
+  },
+
+  "budget_detail": {
+    "title": "Detay bidjè",
+    "allocated": "Aloke",
+    "spent": "Depanse",
+    "remaining": "Rès",
+    "progress": "Pwogresyon",
+    "expenses_linked": "Depans ki lye yo",
+    "no_expenses": "Pa gen depans ki lye.",
+    "add_expense": "Ajoute yon depans"
+  },
+
+  "create_budget": {
+    "title": "Nouvo bidjè",
+    "label_name": "Non bidjè a",
+    "label_amount": "Montan aloke",
+    "label_category": "Kategori",
+    "label_currency": "Monè",
+    "label_period": "Peryòd",
+    "label_start": "Kòmansman",
+    "label_end": "Fen",
+    "hint_name": "Egzanp : Manje, Lojman…",
+    "hint_amount": "0.00",
+    "btn_save": "Kreye bidjè a",
+    "error_name": "Non obligatwa.",
+    "error_amount": "Montan envalid.",
+    "success": "Bidjè kreye !"
+  },
+
+  "profile": {
+    "title": "Pwofil",
+    "plan_free": "Gratis",
+    "plan_upgrade": "Pase nan Premium",
+    "plan_premium_coming": "Premium pou vin.",
+
+    "section_financial": "Paramèt finansye",
+    "my_incomes": "Revni mwen yo",
+    "preferred_currency": "Monè prefere",
+    "exchange_rate": "To echanj",
+    "savings_goal": "Objektif epay",
+    "savings_goal_coming": "Objektif epay pou vin.",
+    "categories": "Kategori",
+    "categories_coming": "Jesyon kategori pou vin.",
+
+    "section_settings": "Paramèt",
+    "language": "Lang",
+    "notifications": "Notifikasyon",
+    "notifications_coming": "Paramèt notifikasyon pou vin.",
+    "biometric_security": "Sekirite byometrik",
+    "session_expiry": "Ekspirasyon sesyon",
+
+    "section_data": "Done",
+    "sync": "Senkronizasyon",
+    "sync_success": "Senkronizasyon fini.",
+    "sync_error": "Erè senkronizasyon.",
+    "export": "Eksporte",
+    "export_coming": "Ekspòtasyon pou vin.",
+
+    "section_help": "Èd",
+    "guide": "Gid",
+    "faq": "FAQ",
+    "support": "Sipò",
+    "rate_app": "Evalye app lan",
+
+    "section_legal": "Legal",
+    "terms": "Kondisyon itilizasyon",
+    "privacy": "Konfidansyalite",
+    "version": "Vèsyon",
+
+    "logout": "Dekonekte",
+    "delete_account": "Efase kont lan"
+  },
+
+  "language": {
+    "title": "Lang aplikasyon an",
+    "french": "Français",
+    "creole": "Kreyòl Ayisyen",
+    "english": "English",
+    "changed": "Lang mete ajou."
+  },
+
+  "biometric": {
+    "title": "Sekirite byometrik",
+    "enable": "Aktive deblokaj byometrik",
+    "delay_label": "Delè anvan vèwouye",
+    "delay_1min": "1 minit",
+    "delay_5min": "5 minit",
+    "delay_15min": "15 minit",
+    "delay_30min": "30 minit",
+    "delay_60min": "1 èdtan"
+  },
+
+  "session": {
+    "title": "Ekspirasyon sesyon",
+    "never": "Janm",
+    "7days": "7 jou",
+    "30days": "30 jou",
+    "90days": "90 jou"
+  },
+
+  "exchange_rate": {
+    "title": "To echanj",
+    "current_rate": "To aktyèl",
+    "source_brh": "Sous : BRH (Banque de la République d'Haïti)",
+    "last_updated": "Mete ajou",
+    "loading": "Chajman to…",
+    "error": "Enposib chaje to a.",
+    "close": "Fèmen"
+  },
+
+  "currency_selector": {
+    "title": "Monè prefere",
+    "htg_label": "Goud ayisyen (HTG)",
+    "usd_label": "Dola ameriken (USD)"
+  },
+
+  "categories": {
+    "food": "Manje",
+    "transport": "Transpò",
+    "housing": "Lojman",
+    "health": "Sante",
+    "education": "Edikasyon",
+    "entertainment": "Plezi",
+    "shopping": "Achte",
+    "utilities": "Sèvis piblik",
+    "salary": "Salè",
+    "freelance": "Frilans",
+    "investment": "Envestisman",
+    "gift": "Kado",
+    "other": "Lòt"
+  }
+}

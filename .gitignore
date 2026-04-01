@@ -43,3 +43,39 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ── Secrets & credentials (ne jamais pousser) ──────────────────────────────
+# Variables d'environnement / clés API locales
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+**/secrets/
+
+# FlutterFire — contient souvent des clés API (généré par flutterfire configure)
+lib/firebase_options.dart
+
+# Firebase — configs client (déjà sensibles si le dépôt est public)
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+
+# Android — signature release & chemins machine-local
+**/android/key.properties
+**/*.jks
+**/*.keystore
+!debug.keystore
+
+# iOS — certificats / profils (rarement dans le repo, mais au cas où)
+**/*.mobileprovision
+**/*.p12
+**/*.cer
+
+# Comptes de service & clés cloud (GCP, AWS, etc.)
+*credentials*.json
+service-account*.json
+*-firebase-adminsdk*.json
+
+# Node dependencies
+node_modules/
